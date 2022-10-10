@@ -9,8 +9,8 @@ module.exports = function validateRegisterInput(data) {
   data.email = !isEmpty(data.email) ? data.email : "";
   data.password = !isEmpty(data.password) ? data.password : "";
   data.password2 = !isEmpty(data.password2) ? data.password2 : "";
-  data.rollno = !isEmpty(data.name) ? data.rollno : "";
-  data.club = !isEmpty(data.name) ? data.club : "";
+  data.rollno = !isEmpty(data.rollno) ? data.rollno : "";
+  data.club = !isEmpty(data.club) ? data.club : "";
 
   //Check the name
   if (Validator.isEmpty(data.name)) {
@@ -27,15 +27,11 @@ module.exports = function validateRegisterInput(data) {
   //Check the roll number
   if (Validator.isEmpty(data.rollno)) {
     errors.rollno = "Roll number field is required";
-  } else if (!Validator.isEmail(data.rollno)) {
-    errors.rollno = "Roll number is invalid";
   }
 
   //Check the club
   if (Validator.isEmpty(data.club)) {
     errors.club = "Club field is required";
-  } else if (!Validator.isEmail(data.club)) {
-    errors.club = "Club is invalid";
   }
 
   //Passwords check
