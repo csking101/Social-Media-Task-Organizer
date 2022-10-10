@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const User = require('../models/user-schema')
+const Task = require('../models/task-schema')
+const Subtask = require('../models/subtask-schema')
 
 /*For users*/
 
