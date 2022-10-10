@@ -2,6 +2,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes/api");
+const passport = require("passport");
 
 require("dotenv").config();
 
@@ -15,6 +16,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", routes);
 
+app.use(passport.initialize());
+require("./config/passport")(passport);
+
 mongoose
   .connect(process.env.DB, { useNewUrlParser: true })
   .then(() => console.log("Database is connected successfully!"))
@@ -26,5 +30,4 @@ app.listen(port, () => {
   console.log(`Backend running on ${port}`);
 });
 
-
-DefaultData();//Use this line of code if you want to load the default data into the database
+DefaultData(); //Use this line of code if you want to load the default data into the database
