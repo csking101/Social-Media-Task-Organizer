@@ -9,6 +9,7 @@ const userSchema = new Schema({
   rollno: {
     type: String,
     required: true,
+    unique: true,
   },
   club: {
     type: String,

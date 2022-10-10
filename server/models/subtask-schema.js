@@ -16,7 +16,6 @@ const subtaskSchema = new Schema({
   },
   file: {
     type: String, //For now, it will remain a string, until the google drive api is linked
-    required: true,
   },
   deadline: {
     type: Date, //This is a unix timestamp
@@ -33,6 +32,14 @@ const subtaskSchema = new Schema({
   created: {
     type: Date,
     default: Date.now(),
+  },
+  task: {
+    type: Schema.Types.ObjectID,
+    ref: "Task",
+  },
+  creator: {
+    type: Schema.Types.ObjectID,
+    ref: "User",
   },
 });
 

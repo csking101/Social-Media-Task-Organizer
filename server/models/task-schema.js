@@ -24,7 +24,7 @@ const taskSchema = new Schema({
   },
   subtasks: {
     type: [{ type: Schema.Types.ObjectId, ref: "Subtask" }],
-    required: true,
+    default: [],
   },
   club: {
     type: String,
@@ -34,7 +34,11 @@ const taskSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+  creator: {
+    type: Schema.Types.ObjectID,
+    ref: "User",
+  },
 });
 
-const Task = mongoose.model('Task',taskSchema);
+const Task = mongoose.model("Task", taskSchema);
 module.exports = Task;
