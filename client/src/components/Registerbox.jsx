@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import {
   Grid,
   Paper,
@@ -8,6 +9,7 @@ import {
   Button,
 } from "@mui/material";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import { registerUser } from "../service/api.js";
 
 const Platform = styled(Paper)`
   padding: 20px;
@@ -42,43 +44,73 @@ const InputField = styled(TextField)`
 `;
 
 const Submit = styled(Button)`
-    color:black;
-    background-color:yellow;
-    margin-top:25px;
-    margin-bottom:20px;
-    height:8vh;
-    width:10vw;
-`
+  color: black;
+  background-color: yellow;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  height: 8vh;
+  width: 10vw;
+`;
 
-function Loginbox() {
+const Registerbox = () => {
+  const [name, setName] = useState("");
+  const [rollno, setRollno] = useState("");
+  const [club, setClub] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpassword, setCPassword] = useState("");
+
+  const submitAction = () => {
+    const data = {
+      name:name,
+      rollno:rollno,
+      club:club,
+      email:email,
+      password:password,
+      password2:cpassword,
+    };
+
+    registerUser(data);
+
+    console.log("User registered successfully")
+  };
+
   return (
     <Grid align="center">
       <Platform elevation={10}>
         <UserIcon></UserIcon>
         <HeadingText>Register</HeadingText>
-        <Grid direction="column">
-        <InputField
+        <Grid>
+          <InputField
             id="standard-basic"
             label="Name"
             variant="standard"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
           <InputField
             id="standard-basic"
             label="Roll Number"
             variant="standard"
+            value={rollno}
+            onChange={(e) => setRollno(e.target.value)}
             required
           />
           <InputField
             id="standard-basic"
             label="Club"
             variant="standard"
+            value={club}
+            onChange={(e) => setClub(e.target.value)}
             required
           />
           <InputField
             id="standard-basic"
             label="E-mail"
             variant="standard"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <InputField
@@ -86,6 +118,8 @@ function Loginbox() {
             label="Password"
             variant="standard"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
           <InputField
@@ -93,13 +127,17 @@ function Loginbox() {
             label="Confirm Password"
             variant="standard"
             type="password"
+            value={cpassword}
+            onChange={(e) => setCPassword(e.target.value)}
             required
           />
         </Grid>
-        <Submit variant="contained">Register</Submit>
+        <Submit variant="contained" onClick={submitAction}>
+          Register
+        </Submit>
       </Platform>
     </Grid>
   );
-}
+};
 
-export default Loginbox;
+export default Registerbox;
