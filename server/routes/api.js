@@ -8,10 +8,12 @@ const User = require("../models/user-schema");
 const Task = require("../models/task-schema");
 const Subtask = require("../models/subtask-schema");
 
+/*For login and registration*/
+
 const validateLoginInput = require("../validation/login");
 const validateRegisterInput = require("../validation/register");
 
-/*For login and registration*/
+const { requireAuth } = require("../middleware/authMiddleware");
 
 // @route POST api/register-user
 // @desc Registering the user
@@ -80,11 +82,14 @@ router.post("/login-user", (req, res) => {
         // User matched
         // Create JWT Payload
         const payload = {
-          id: user.id,
+          id: user._id,
           name: user.name,
+          club: user.club,
+          email: user.email,
+          rollno: user.rollno,
         };
         // Sign token
-        jwt.sign(
+        const token = jwt.sign(
           payload,
           keys.secretOrKey,
           {
@@ -97,6 +102,13 @@ router.post("/login-user", (req, res) => {
             });
           }
         );
+        try {
+          res.cookie("jwt", token, { httpOnly: true, maxAge: 30000000 });
+        } catch (err) {
+          console.log("Error");
+          res.status(201).json({ name: user.name, id: user._id }); //The name should be removed later
+        }
+        return token;
       } else {
         return res
           .status(400)
@@ -108,10 +120,14 @@ router.post("/login-user", (req, res) => {
 
 /*For users*/
 
+const { getUsers } = require("../controllers/user-controller.js");
+
+router.use("/users", requireAuth);
+
 // @route GET api/users
 // @desc Fetch the array of users
 // @access Private
-router.get("/users", (req, res) => {});
+router.get("/users", getUsers);
 
 // @route POST api/users
 // @desc Add a new user to the db

@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes/api");
 const passport = require("passport");
+const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 
@@ -18,6 +19,8 @@ app.use("/api", routes);
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
+
+app.use(cookieParser());
 
 mongoose
   .connect(process.env.DB, { useNewUrlParser: true })
