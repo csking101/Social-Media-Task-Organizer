@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   Grid,
   Paper,
@@ -8,6 +9,7 @@ import {
   Button,
 } from "@mui/material";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import { loginUser } from "../service/api.js";
 
 const Platform = styled(Paper)`
   padding: 20px;
@@ -43,14 +45,28 @@ const InputField = styled(TextField)`
 `;
 
 const Submit = styled(Button)`
-    color:black;
-    background-color:yellow;
-    margin-top:25px;
-    height:8vh;
-    width:10vw;
-`
+  color: black;
+  background-color: yellow;
+  margin-top: 25px;
+  height: 8vh;
+  width: 10vw;
+`;
 
-function Loginbox() {
+const Loginbox = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const submitAction = () => {
+    const data = {
+      email: email,
+      password: password,
+    };
+
+    loginUser(data);
+
+    console.log("Loginbox component:User logged in successfully");
+  };
+
   return (
     <Grid align="center">
       <Platform elevation={10}>
@@ -61,6 +77,8 @@ function Loginbox() {
             id="standard-basic"
             label="E-mail"
             variant="standard"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <InputField
@@ -68,13 +86,17 @@ function Loginbox() {
             label="Password"
             variant="standard"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </Grid>
-        <Submit variant="contained">Log in</Submit>
+        <Submit variant="contained" onClick={submitAction}>
+          Log in
+        </Submit>
       </Platform>
     </Grid>
   );
-}
+};
 
 export default Loginbox;
