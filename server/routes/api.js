@@ -118,6 +118,15 @@ router.post("/login-user", (req, res) => {
   });
 });
 
+// @route POST /api/logout-user
+// @desc Logout the user and redirect to the login page
+// @access Private
+
+router.post('/logout-user', (req,res) => {
+  res.cookie("jwt", "", { maxAge: 1 });
+  res.redirect("/api/login-user");
+})
+
 /*For users*/
 
 const { getUsers } = require("../controllers/user-controller.js");
