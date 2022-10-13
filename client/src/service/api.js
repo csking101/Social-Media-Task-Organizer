@@ -6,7 +6,10 @@ export const registerUser = async (data) => {
   try {
     return await axios
       .post(`${URL}/api/register-user`, data)
-      .then(console.log("User registered successfully!"))
+      .then((response) => {
+        console.log(response);
+        console.log("Axios: User registered successfully!");
+      })
       .catch((error) => console.log(error));
   } catch (error) {
     console.log(error);
@@ -17,8 +20,23 @@ export const loginUser = async (data) => {
   try {
     return await axios
       .post(`${URL}/api/login-user`, data)
-      .then(console.log("Axios: logged user in successfully!"))
-      .catch((error) => console.log(error));
+      .then((response) => {
+        const token = response.data.token;
+        console.log(token);
+        console.log("Axios: User logged in successfully!");
+        localStorage.setItem("token", token);
+        localStorage.setItem("loggedin",true);
+        console.log("Axios: Token has been set");
+        return token;
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Wrong Password!");
+        localStorage.setItem("token", "");
+        localStorage.setItem("loggedin",false);
+        console.log("Axios: Token has been cleared");
+        return "";
+      });
   } catch (error) {
     console.log(error);
   }

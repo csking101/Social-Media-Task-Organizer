@@ -7,7 +7,7 @@ const Subtask = require("./models/subtask-schema.js");
 
 const DefaultUserData = async () => {
   try {
-    await User.deleteMany({});
+    //await User.deleteMany({});
     await User.insertMany(userData);
     console.log("Default user data inputted successfully");
   } catch (err) {

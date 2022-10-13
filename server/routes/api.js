@@ -79,6 +79,7 @@ router.post("/login-user", (req, res) => {
     // Check password
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
+        console.log("Server API: Passwords match, continue login")
         // User matched
         // Create JWT Payload
         const payload = {
@@ -110,6 +111,7 @@ router.post("/login-user", (req, res) => {
         }
         return token;
       } else {
+        console.log("Server API: Password doesn't match")
         return res
           .status(400)
           .json({ passwordincorrect: "Password incorrect" });

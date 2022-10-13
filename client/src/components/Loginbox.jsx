@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Grid,
   Paper,
@@ -56,15 +57,21 @@ const Loginbox = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitAction = () => {
+  const navigate = useNavigate();
+
+  const submitAction = async () => {
     const data = {
       email: email,
       password: password,
     };
 
-    loginUser(data);
+    await loginUser(data);
 
-    console.log("Loginbox component:User logged in successfully");
+    const token = localStorage.getItem("token");
+
+    await console.log("submitAction function: Token obtained is-", token);
+
+    navigate("/dashboard");
   };
 
   return (
