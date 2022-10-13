@@ -9,4 +9,15 @@ const getUsers = async (req, res) => {
   }
 };
 
-module.exports = { getUsers };
+const getUser = async (req, res) => {
+  const email = req.params.email;
+
+  try {
+    let data = await User.find({ email: email });
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json({ message: data.message });
+  }
+};
+
+module.exports = { getUsers, getUser };

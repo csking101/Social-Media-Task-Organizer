@@ -131,7 +131,7 @@ router.post('/logout-user', (req,res) => {
 
 /*For users*/
 
-const { getUsers } = require("../controllers/user-controller.js");
+const { getUsers, getUser } = require("../controllers/user-controller.js");
 
 router.use("/users", requireAuth);
 
@@ -139,6 +139,11 @@ router.use("/users", requireAuth);
 // @desc Fetch the array of users
 // @access Private
 router.get("/users", getUsers);
+
+// @route GET api/users/:email
+// @desc Geth a user based on the email
+// @access Private
+router.get("/users/:email", getUser)
 
 // @route POST api/users
 // @desc Add a new user to the db
