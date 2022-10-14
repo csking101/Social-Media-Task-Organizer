@@ -11,7 +11,6 @@ import Logout from "./pages/Logout";
 
 
 function App() {
-  localStorage.setItem('token',{});
 
   return (
     <div className="App">
