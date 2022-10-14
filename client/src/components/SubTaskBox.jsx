@@ -26,7 +26,7 @@ const SubTaskBox = (props) => {
   if (!(subtaskData === [])) {
     console.log(subtaskData);
     return (
-      <Platform style={{ overflow: "auto", scrollbarWidth: "none" }}>
+      <Platform style={{ overflow: "auto", scrollbarWidth: "none" }} >
         <div style={{ textAlign: "center", padding: "15px" }}>
           <Heading>ASSIGNED SUBTASKS</Heading>
           <Divider />
@@ -41,6 +41,8 @@ const SubTaskBox = (props) => {
               deadline={subtask.deadline}
               file={subtask.file}
               status={subtask.status}
+              id={subtask.id}
+              setItemView={props.setItemView}
             />
           );
         })}

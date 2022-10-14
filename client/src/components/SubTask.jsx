@@ -36,7 +36,7 @@ const Description = styled(Typography)`
 
 const FileAttached = styled(Typography)`
   font-size: 14px;
-  color: #FF9000;
+  color: #ff9000;
 `;
 
 const Status = styled(Typography)`
@@ -49,10 +49,27 @@ const SubTask = (props) => {
   if (!props.file) file = "None";
   else file = props.file;
 
+  const setItemView = props.setItemView;
+
+  const cardClick = () => {
+    setItemView({
+      view: "subtask",
+      title: props.title,
+      deadline: props.deadline,
+      desc: props.desc,
+      platform: props.platform,
+      createdby: props.createdby,
+      subtasks: props.subtasks,
+      file: props.file,
+      status: props.status,
+      id: props.id,
+    });
+  };
+
   console.log(props);
 
   return (
-    <CardContainer>
+    <CardContainer onClick={cardClick}>
       <Heading>{props.title.toUpperCase()}</Heading>
       <Status>
         <b>STATUS:</b> {props.status}

@@ -53,6 +53,17 @@ const CreatedBy = styled(Typography)`
   color: #39a2ae;
 `;
 
+const Attachment = styled(Typography)`
+  font-size: 20px;
+  color: #ff9000;
+  background-color: #04151f;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+`;
+
 const IDNumber = styled(Typography)`
   font-size:28px;
   position:absolute;
@@ -115,6 +126,37 @@ const ItemView = (props) => {
       </Elevation>
     );
   } else if (viewType.view === "subtask") {
+    let { title, deadline, createdby, desc, subtasks, id, file,status } = viewType;
+
+    if (!desc) desc = "None";
+    if (!file) file = "None";
+
+    return (
+      <Elevation style={{ overflow: "auto", scrollbarWidth: "none" }}>
+        <IDNumber>{id}</IDNumber>
+        <Heading>
+          <center>{title.toUpperCase()}</center>
+        </Heading>
+        <Deadline>
+          <b>DEADLINE: </b>
+          {deadline.toString().slice(0, 10)}
+        </Deadline>
+        <Deadline>
+          <b>STATUS: </b>
+          {status}
+        </Deadline>
+        <Description>
+          <b>
+            <center>DESCRIPTION</center>
+          </b>
+          {desc}
+        </Description>
+        <Attachment>
+          <b>ATTACHMENTS: </b> {file}
+        </Attachment>
+        <CreatedBy>{createdby}</CreatedBy>
+      </Elevation>
+    );
   } else {
     return (
       <ElevationViewNone>
