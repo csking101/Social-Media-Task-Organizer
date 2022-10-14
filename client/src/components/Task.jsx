@@ -1,4 +1,5 @@
 import { styled, Card, Typography } from "@mui/material";
+import DelIcon from "./DelIcon";
 import React from "react";
 
 const CardContainer = styled(Card)`
@@ -44,12 +45,13 @@ const Task = (props) => {
       id: props.id,
     });
 
-    console.log("Item view has been set by a task cards")
-  }
+    console.log("Item view has been set by a task cards");
+  };
 
   console.log(props);
   return (
     <CardContainer onClick={cardClick}>
+      <DelIcon id={props.id} />
       <Heading>{props.title.toUpperCase()}</Heading>
       <Deadline>{props.deadline.toString().slice(0, 10)}</Deadline>
       <Platform>{props.platform}</Platform>
