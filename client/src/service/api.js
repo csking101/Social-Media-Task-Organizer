@@ -98,3 +98,17 @@ export const getSubtaskDataByName = async (name) => {
     console.log(err);
   }
 }
+
+export const postNewTask = async (taskData) => {
+  try {
+    return await axios
+      .post(`${URL}/api/tasks`,taskData)
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => console.log(error));
+  } catch (err) {
+    console.log(err);
+  }
+};

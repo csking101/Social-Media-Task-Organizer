@@ -65,14 +65,14 @@ const Attachment = styled(Typography)`
 `;
 
 const IDNumber = styled(Typography)`
-  font-size:28px;
+  font-size:20px;
   position:absolute;
-  right:40px;
+  right:25px;
   margin-top:10px;
   color: #39a2ae;
   background-color: #04151f;
   border-radius:50px;
-  padding:10px;
+  padding:6px;
 `
 
 const ElevationViewNone = styled(Paper)`

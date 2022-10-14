@@ -7,22 +7,28 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Logout from "./pages/Logout";
-
-
+import AddTask from "./pages/AddTask";
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-            <Route path="/login" element={
-              (localStorage.getItem('loggedin') === 'true') ? <Navigate to='/dashboard' /> : <Login />
-            } />
-            <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/logout" element={<Logout />} />
+          <Route
+            path="/login"
+            element={
+              localStorage.getItem("loggedin") === "true" ? (
+                <Navigate to="/dashboard" />
+              ) : (
+                <Login />
+              )
+            }
+          />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/addtask" element={<AddTask />} />
         </Routes>
       </BrowserRouter>
     </div>
