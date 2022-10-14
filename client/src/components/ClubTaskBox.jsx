@@ -32,6 +32,7 @@ const ClubTaskBox = (props) => {
           <Divider />
         </div>
         {taskData.map((task) => {
+          console.log(task.title, task.desc);
           return (
             <Task
               title={task.title}
@@ -39,6 +40,8 @@ const ClubTaskBox = (props) => {
               platform={task.platform}
               createdby={task.createdby}
               deadline={task.deadline}
+              id={task.id}
+              setItemView={props.setItemView}
             />
           );
         })}

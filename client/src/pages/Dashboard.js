@@ -1,4 +1,4 @@
-import react from "react";
+import { react, useState } from "react";
 import { Navigate } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
@@ -12,6 +12,8 @@ import ItemView from "../components/ItemView";
 const Dashboard = () => {
   console.log(JSON.parse(localStorage.getItem("token")));
   console.log(localStorage.getItem("loggedin"));
+
+  const [itemView, setItemView] = useState({ view: "none" });
 
   if (localStorage.getItem("loggedin") === "true") {
     const userData = jwt_decode(localStorage.getItem("token"));
@@ -28,9 +30,9 @@ const Dashboard = () => {
       <div>
         <Navbar />
         <Flexbox>
-          <ClubTaskBox club={userData.club} />
-          <SubTaskBox name={userData.name}/>
-          <ItemView />
+          <ClubTaskBox club={userData.club} setItemView={setItemView} />
+          <SubTaskBox name={userData.name} setItemView={setItemView} />
+          <ItemView itemView={itemView} />
         </Flexbox>
       </div>
     );
