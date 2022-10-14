@@ -30,4 +30,14 @@ const addTask = async (req,res) => {
   }
 }
 
-module.exports = { getTasks, getTaskByClub, addTask };
+const deleteTask = async (req,res) => {
+  try{
+    let data = await Task.deleteMany({ id:req.params.id });
+    res.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({message:data.message})
+  }
+}
+
+module.exports = { getTasks, getTaskByClub, addTask, deleteTask };
