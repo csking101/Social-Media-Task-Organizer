@@ -79,7 +79,7 @@ router.post("/login-user", (req, res) => {
     // Check password
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        console.log("Server API: Passwords match, continue login")
+        console.log("Server API: Passwords match, continue login");
         // User matched
         // Create JWT Payload
         const payload = {
@@ -111,7 +111,7 @@ router.post("/login-user", (req, res) => {
         }
         return token;
       } else {
-        console.log("Server API: Password doesn't match")
+        console.log("Server API: Password doesn't match");
         return res
           .status(400)
           .json({ passwordincorrect: "Password incorrect" });
@@ -124,10 +124,10 @@ router.post("/login-user", (req, res) => {
 // @desc Logout the user and redirect to the login page
 // @access Private
 
-router.post('/logout-user', (req,res) => {
+router.post("/logout-user", (req, res) => {
   res.cookie("jwt", "", { maxAge: 1 });
   res.redirect("/api/login-user");
-})
+});
 
 /*For users*/
 
@@ -143,7 +143,7 @@ router.get("/users", getUsers);
 // @route GET api/users/:email
 // @desc Geth a user based on the email
 // @access Private
-router.get("/users/:email", getUser)
+router.get("/users/:email", getUser);
 
 // @route POST api/users
 // @desc Add a new user to the db
@@ -162,10 +162,20 @@ router.put("/users/:id", (req, res) => {});
 
 /*For tasks*/
 
+const {
+  getTasks,
+  getTaskByClub,
+} = require("../controllers/task-controller.js");
+
 // @route GET api/tasks
 // @desc Fetch the array of tasks
 // @access Private
-router.get("/tasks", (req, res) => {});
+router.get("/tasks", getTasks);
+
+// @route GET api/tasks/:club
+// @desc Fetch the array of tasks pertaining to a specific club
+// @access Private
+router.get("/tasks/:club", getTaskByClub);
 
 // @route POST api/tasks
 // @desc Add a new task to the db
