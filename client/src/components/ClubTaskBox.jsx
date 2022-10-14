@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import { styled } from "@mui/material";
+import AddBoxIcon from "@mui/icons-material/AddBox";
 import { Platform } from "./Platform";
 import { Heading } from "./Heading";
+import PlusIcon from "./PlusIcon";
 import Task from "./Task";
 import { getTaskDataByClub } from "../service/api";
 
@@ -27,6 +29,7 @@ const ClubTaskBox = (props) => {
     console.log(taskData);
     return (
       <Platform style={{ overflow: "auto", scrollbarWidth: "none" }}>
+        <PlusIcon />
         <div style={{ textAlign: "center", padding: "15px" }}>
           <Heading>CLUB TASKS</Heading>
           <Divider />
