@@ -165,6 +165,7 @@ router.put("/users/:id", (req, res) => {});
 const {
   getTasks,
   getTaskByClub,
+  addTask,
 } = require("../controllers/task-controller.js");
 
 // @route GET api/tasks
@@ -180,7 +181,7 @@ router.get("/tasks/:club", getTaskByClub);
 // @route POST api/tasks
 // @desc Add a new task to the db
 // @access Private
-router.post("/tasks", (req, res) => {});
+router.post("/tasks", addTask);
 
 // @route DELETE api/tasks/:id
 // @desc Delete a specific task from the db

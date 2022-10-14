@@ -18,4 +18,16 @@ const getTaskByClub = async (req, res) => {
   }
 };
 
-module.exports = { getTasks, getTaskByClub };
+const addTask = async (req,res) => {
+  const taskData = req.body;
+  try {
+    let data = await Task.insertMany(taskData);
+    console.log("Default task data inputted successfully");
+    res.status(200).json(data);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: data.message });
+  }
+}
+
+module.exports = { getTasks, getTaskByClub, addTask };
