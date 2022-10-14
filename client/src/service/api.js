@@ -24,7 +24,7 @@ export const loginUser = async (data) => {
         const token = response.data.token;
         console.log(token);
         console.log("Axios: User logged in successfully!");
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", JSON.stringify(token));
         localStorage.setItem("loggedin", true);
         console.log("Axios: Token has been set");
         return token;
@@ -56,3 +56,31 @@ export const getUserData = async (email) => {
     console.log(err);
   }
 };
+
+export const getTaskData = async () => {
+  try {
+    return await axios
+      .get(`${URL}/api/tasks`)
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => console.log(error));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getTaskDataByClub = async (club) => {
+  try {
+    return await axios
+      .get(`${URL}/api/tasks/${club}`)
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => console.log(error));
+  } catch (err) {
+    console.log(err);
+  }
+}
