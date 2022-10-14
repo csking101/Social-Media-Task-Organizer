@@ -84,3 +84,17 @@ export const getTaskDataByClub = async (club) => {
     console.log(err);
   }
 }
+
+export const getSubtaskDataByName = async (name) => {
+  try {
+    return await axios
+      .get(`${URL}/api/subtasks/${name}`)
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => console.log(error));
+  } catch (err) {
+    console.log(err);
+  }
+}
