@@ -29,7 +29,7 @@ const Dashboard = () => {
         <Navbar />
         <Flexbox>
           <ClubTaskBox club={userData.club} />
-          <SubTaskBox />
+          <SubTaskBox name={userData.name}/>
           <ItemView />
         </Flexbox>
       </div>
