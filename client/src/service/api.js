@@ -83,7 +83,7 @@ export const getTaskDataByClub = async (club) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 export const getSubtaskDataByName = async (name) => {
   try {
@@ -97,12 +97,26 @@ export const getSubtaskDataByName = async (name) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 export const postNewTask = async (taskData) => {
   try {
     return await axios
-      .post(`${URL}/api/tasks`,taskData)
+      .post(`${URL}/api/tasks`, taskData)
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => console.log(error));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const deleteTask = async (id) => {
+  try {
+    return await axios
+      .delete(`${URL}/api/tasks/${id}`)
       .then((response) => {
         console.log(response);
         return response;
