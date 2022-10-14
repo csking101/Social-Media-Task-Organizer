@@ -194,10 +194,17 @@ router.put("/tasks/:id", (req, res) => {});
 
 /*For subtasks*/
 
+const { getSubtaskByName } = require("../controllers/subtask-controller.js");
+
 // @route GET api/subtasks
 // @desc Fetch the array of subtasks
 // @access Private
 router.get("/subtasks", (req, res) => {});
+
+// @route GET api/subtasks/:name
+// @desc Fetch the array of subtasks assigned to a person by name
+// @access Private
+router.get("/subtasks/:name", getSubtaskByName);
 
 // @route POST api/subtasks
 // @desc Add a new user to the db
