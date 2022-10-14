@@ -3,10 +3,11 @@ import { styled } from "@mui/material";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 
 const Iconthing = styled(AddBoxIcon)`
-  position: absolute;
+  position: relative;
   transform: scale(2);
-  left: 2.9vw;
-  top: 18vh;
+  margin-left:2vw;
+  
+  margin-bottom:-7vh;
 `;
 
 const PlusIcon = () => {
