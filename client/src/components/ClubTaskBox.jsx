@@ -12,6 +12,28 @@ const Divider = styled("hr")({
   color: "#04151F",
 });
 
+const groupBy = (key) => (array) =>
+  array.reduce((objectsByKeyValue, obj) => {
+    const value = obj[key];
+    objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+    return objectsByKeyValue;
+  }, {});
+
+const platformSort = (taskData) => {
+  const groupByPlatform = groupBy("platform");
+
+  const dict = groupByPlatform(taskData);
+
+  let dataArr = [];
+  for (let platform in dict) {
+    for (let ind in dict[platform]) {
+      dataArr.push(dict[platform][ind]);
+    }
+  }
+
+  return dataArr;
+};
+
 const ClubTaskBox = (props) => {
   const club = props.club;
   const [taskData, setTaskData] = useState([]);
@@ -19,7 +41,8 @@ const ClubTaskBox = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getTaskDataByClub(club);
-      setTaskData(data.data);
+      //setTaskData(data.data);
+      setTaskData(platformSort(data.data));
       console.log("Data set perfectly");
     };
     fetchData();
@@ -27,6 +50,7 @@ const ClubTaskBox = (props) => {
 
   if (!(taskData === [])) {
     console.log(taskData);
+
     return (
       <Platform style={{ overflow: "auto", scrollbarWidth: "none" }}>
         <PlusIcon redirect="/addtask" />
