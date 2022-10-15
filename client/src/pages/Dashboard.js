@@ -10,10 +10,12 @@ import SubTaskBox from "../components/SubTaskBox";
 import ItemView from "../components/ItemView";
 
 const Dashboard = () => {
+  const [itemView, setItemView] = useState({ view: "none" });
+  if (localStorage.getItem("token") === "") return <Navigate to="/login" />;
   console.log(JSON.parse(localStorage.getItem("token")));
   console.log(localStorage.getItem("loggedin"));
 
-  const [itemView, setItemView] = useState({ view: "none" });
+  
 
   if (localStorage.getItem("loggedin") === "true") {
     const userData = jwt_decode(localStorage.getItem("token"));
