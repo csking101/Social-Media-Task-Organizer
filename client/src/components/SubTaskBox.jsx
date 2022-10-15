@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material";
 import { Platform } from "./Platform";
 import { Heading } from "./Heading";
+import PlusIcon from "./PlusIcon";
 import SubTask from "./SubTask";
 import { getSubtaskDataByName } from "../service/api";
 
@@ -27,8 +28,9 @@ const SubTaskBox = (props) => {
     console.log(subtaskData);
     return (
       <Platform style={{ overflow: "auto", scrollbarWidth: "none" }} >
+        <PlusIcon redirect="/addsubtask" />
         <div style={{ textAlign: "center", padding: "15px" }}>
-          <Heading>ASSIGNED SUBTASKS</Heading>
+          <Heading>YOUR SUBTASKS</Heading>
           <Divider />
         </div>
         {subtaskData.map((subtask) => {

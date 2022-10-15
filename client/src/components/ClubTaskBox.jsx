@@ -29,7 +29,7 @@ const ClubTaskBox = (props) => {
     console.log(taskData);
     return (
       <Platform style={{ overflow: "auto", scrollbarWidth: "none" }}>
-        <PlusIcon />
+        <PlusIcon redirect="/addtask" />
         <div style={{ textAlign: "center", padding: "15px" }}>
           <Heading>CLUB TASKS</Heading>
           <Divider />
