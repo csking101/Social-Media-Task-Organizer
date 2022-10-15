@@ -6,14 +6,13 @@ const Iconthing = styled(AddBoxIcon)`
   position: relative;
   transform: scale(2);
   margin-left:2vw;
-  
   margin-bottom:-7vh;
 `;
 
-const PlusIcon = () => {
+const PlusIcon = (props) => {
   return (
     <div>
-      <Link to="/addTask" style={{ color: "#04151F" }}>
+      <Link to={props.redirect} style={{ color: "#04151F" }}>
         <Iconthing />
       </Link>
     </div>
