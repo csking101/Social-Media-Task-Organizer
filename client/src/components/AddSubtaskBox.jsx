@@ -112,7 +112,7 @@ const AddSubtaskBox = () => {
       console.log(data.task);
       await postNewSubtask(data);
 
-      //navigate("/dashboard");
+      navigate("/dashboard");
     };
 
     return (
