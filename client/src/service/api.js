@@ -85,6 +85,20 @@ export const getTaskDataByClub = async (club) => {
   }
 };
 
+export const getTaskDataByTitle = async (title) => {
+  try {
+    return await axios
+      .get(`${URL}/api/tasks/getbytitle/${title}`)
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => console.log(error));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const getSubtaskDataByName = async (name) => {
   try {
     return await axios
@@ -117,6 +131,34 @@ export const deleteTask = async (id) => {
   try {
     return await axios
       .delete(`${URL}/api/tasks/${id}`)
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => console.log(error));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const postNewSubtask = async (taskData) => {
+  try {
+    return await axios
+      .post(`${URL}/api/subtasks`, taskData)
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => console.log(error));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const deleteSubtask = async (id) => {
+  try {
+    return await axios
+      .delete(`${URL}/api/subtasks/${id}`)
       .then((response) => {
         console.log(response);
         return response;
