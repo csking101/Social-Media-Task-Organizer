@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   Grid,
   Paper,
@@ -56,6 +56,11 @@ const Submit = styled(Button)`
   width: 10vw;
 `;
 
+const RegisterRedirect = styled('p')({
+  "text-decoration" : "none",
+  "color" : "#04151F",
+})
+
 const Loginbox = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -104,6 +109,7 @@ const Loginbox = () => {
         <Submit variant="contained" onClick={submitAction}>
           Log in
         </Submit>
+        <Link to="/register"><RegisterRedirect>Sign up instead</RegisterRedirect></Link>
       </Platform>
     </Grid>
   );

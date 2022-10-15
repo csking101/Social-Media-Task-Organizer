@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Grid,
   Paper,
@@ -54,6 +55,11 @@ const Submit = styled(Button)`
   height: 8vh;
   width: 10vw;
 `;
+
+const LoginRedirect = styled('p')({
+  "text-decoration" : "none",
+  "color" : "#04151F",
+})
 
 const Registerbox = () => {
   const [name, setName] = useState("");
@@ -138,6 +144,7 @@ const Registerbox = () => {
         <Submit variant="contained" onClick={submitAction}>
           Register
         </Submit>
+        <Link to="/login"><LoginRedirect>Sign in instead</LoginRedirect></Link>
       </Platform>
     </Grid>
   );
