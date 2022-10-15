@@ -1,4 +1,4 @@
-#Installation Steps:
+# Installation Steps:
 1.Install npm, if you haven't already on your computer.
 
 2.Clone this repository locally
@@ -16,15 +16,18 @@ It should look something like this:
 
 You are now ready to run your project!
 
-#Steps to run the project:
+# Steps to run the project:
 1.Open a command prompt from the root directory of the repository and type the following:
-```cd client
+```
+cd client
 npm start
 ```
 
 2.Open another commant prompt from root directory and type this:
-```cd server
-npm start```
+```
+cd server
+npm start
+```
 
 3.The project is setup to run with some default data already present for testing purposes. If you don't want this default data to load, comment out line 36 in index.js.
 `DefaultData();`
@@ -35,7 +38,7 @@ If you look at `default.js`, you can choose which collections you want to add to
 
 4.In your browser(preferably Firefox), go to `http://localhost:3000/login` and Login your user, or register the same.
 
-#List of implemented features:
+# List of implemented features:
 
 *Login for the users
 *Register for the users
@@ -56,7 +59,7 @@ If you look at `default.js`, you can choose which collections you want to add to
 *There has been a dashboard created for the viewing, creating, and deleting of the tasks and subtasks.
 *The different tasks of the club have been ordered by the social media platform
 
-#List of planned features:
+# List of planned features:
 
 *Change color of subtasks based on its status
 *Include drop-down menus
@@ -70,19 +73,19 @@ If you look at `default.js`, you can choose which collections you want to add to
 *Improve the models of the tasks, subtasks and users
 *Make references between users, tasks, and subtasks in the collections
 
-#List of known bugs:
+# List of known bugs:
 
 1.Application stops working, and backend server crashes in case invalid form data is submitted to the database. Just restart the database prompt if this happens.
 2.The right side view will not change to view None after the deletion of a task or a subtask and if the same was selected in the view (Should be fixed easily)
 3.Log out pages sometimes redirects to the dashboard
 4.Sometimes subtasks aren't added
 
-#References used:
+# References used:
 
 *Stack Overflow
 *Material UI Docs
 *mongoosejs.com
 *Github Gist
 
-#Screenshots:
+# Screenshots:
 
