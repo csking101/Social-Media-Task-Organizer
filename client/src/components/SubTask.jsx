@@ -1,4 +1,5 @@
 import { styled, Card, Typography } from "@mui/material";
+import DelIconST from "./DelIconST";
 import React from "react";
 
 const CardContainer = styled(Card)`
@@ -70,6 +71,7 @@ const SubTask = (props) => {
 
   return (
     <CardContainer onClick={cardClick}>
+      <DelIconST id={props.id} />
       <Heading>{props.title.toUpperCase()}</Heading>
       <Status>
         <b>STATUS:</b> {props.status}
