@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Logout from "./pages/Logout";
 import AddTask from "./pages/AddTask";
+import AddSubtask from "./pages/AddSubtask";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/addtask" element={<AddTask />} />
+          <Route path="/addsubtask" element={<AddSubtask />} />
         </Routes>
       </BrowserRouter>
     </div>
