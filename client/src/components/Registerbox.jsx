@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Grid,
   Paper,
@@ -62,6 +62,7 @@ const LoginRedirect = styled('p')({
 })
 
 const Registerbox = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [rollno, setRollno] = useState("");
   const [club, setClub] = useState("");
@@ -82,6 +83,8 @@ const Registerbox = () => {
     registerUser(data);
 
     console.log("User registered successfully");
+
+    navigate('/login');
   };
 
   return (
