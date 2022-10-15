@@ -18,10 +18,11 @@ const Platform = styled(Paper)`
   width: 30vw;
   margin: 16vh auto;
   text-align: center;
+  background-color:#39A2AE;
 `;
 
 const UserIcon = styled(AccountCircleRoundedIcon)`
-  color: green;
+  color: #04151F;
   transform: scale(3);
   margin: 20px auto;
   margin-bottom: 30px;
@@ -29,6 +30,7 @@ const UserIcon = styled(AccountCircleRoundedIcon)`
 
 const HeadingText = styled(Typography)`
   font-size: 22px;
+  color: #04151F;
   font-weight: 300;
   margin-bottom: 30px;
 `;
@@ -43,11 +45,12 @@ const InputField = styled(TextField)`
   margin: 10px;
   padding: 10px;
   width: 20vw;
+  color: #EA3546;
 `;
 
 const Submit = styled(Button)`
-  color: black;
-  background-color: yellow;
+  background-color: #04151F;
+  color: #39A2AE;
   margin-top: 25px;
   height: 8vh;
   width: 10vw;

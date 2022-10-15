@@ -16,10 +16,11 @@ const Platform = styled(Paper)`
   width: 30vw;
   margin: 16vh auto;
   text-align: center;
+  background-color: #39a2ae;
 `;
 
 const UserIcon = styled(AccountCircleRoundedIcon)`
-  color: green;
+  color: #04151f;
   transform: scale(3);
   margin: 20px auto;
   margin-bottom: 30px;
@@ -29,6 +30,7 @@ const HeadingText = styled(Typography)`
   font-size: 22px;
   font-weight: 300;
   margin-bottom: 30px;
+  color: #04151f;
 `;
 
 const SubHeadingText = styled(Typography)`
@@ -41,11 +43,12 @@ const InputField = styled(TextField)`
   margin: 10px;
   padding: 10px;
   width: 20vw;
+  color: #ea3546;
 `;
 
 const Submit = styled(Button)`
-  color: black;
-  background-color: yellow;
+  background-color: #04151f;
+  color: #39a2ae;
   margin-top: 25px;
   margin-bottom: 20px;
   height: 8vh;
@@ -62,17 +65,17 @@ const Registerbox = () => {
 
   const submitAction = () => {
     const data = {
-      name:name,
-      rollno:rollno,
-      club:club,
-      email:email,
-      password:password,
-      password2:cpassword,
+      name: name,
+      rollno: rollno,
+      club: club,
+      email: email,
+      password: password,
+      password2: cpassword,
     };
 
     registerUser(data);
 
-    console.log("User registered successfully")
+    console.log("User registered successfully");
   };
 
   return (
