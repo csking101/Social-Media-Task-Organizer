@@ -57,7 +57,7 @@ const Submit = styled(Button)`
 `;
 
 const LoginRedirect = styled('p')({
-  "text-decoration" : "none",
+  "textDecoration" : "none",
   "color" : "#04151F",
 })
 

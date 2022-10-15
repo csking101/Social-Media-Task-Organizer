@@ -16,12 +16,14 @@ const Platform = styled(Paper)`
   width: 30vw;
   margin: 16vh auto;
   text-align: center;
+  background-color: #39a2ae;
 `;
 
 const HeadingText = styled(Typography)`
   font-size: 22px;
   font-weight: 300;
   margin-bottom: 30px;
+  color: #04151f;
 `;
 
 const SubHeadingText = styled(Typography)`
@@ -34,11 +36,12 @@ const InputField = styled(TextField)`
   margin: 10px;
   padding: 10px;
   width: 20vw;
+  color: #ea3546;
 `;
 
 const Submit = styled(Button)`
-  color: black;
-  background-color: yellow;
+  background-color: #04151f;
+  color: #39a2ae;
   margin-top: 25px;
   margin-bottom: 20px;
   height: 8vh;
@@ -61,13 +64,13 @@ const AddTaskBox = () => {
   if (localStorage.getItem("loggedin") === "true") {
     const submitAction = async () => {
       const data = {
-        id:id,
-        title:title,
-        desc:description,
-        platform:platform,
-        deadline:deadline,
-        club:club,
-        creator:creator
+        id: id,
+        title: title,
+        desc: description,
+        platform: platform,
+        deadline: deadline,
+        club: club,
+        creator: creator,
       };
 
       await postNewTask(data);
