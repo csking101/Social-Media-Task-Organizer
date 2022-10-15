@@ -18,7 +18,7 @@ const getTaskByClub = async (req, res) => {
   }
 };
 
-const addTask = async (req,res) => {
+const addTask = async (req, res) => {
   const taskData = req.body;
   try {
     let data = await Task.insertMany(taskData);
@@ -28,16 +28,26 @@ const addTask = async (req,res) => {
     console.log(err);
     res.status(500).json({ message: data.message });
   }
-}
+};
 
-const deleteTask = async (req,res) => {
-  try{
-    let data = await Task.deleteMany({ id:req.params.id });
+const deleteTask = async (req, res) => {
+  try {
+    let data = await Task.deleteMany({ id: req.params.id });
     res.status(200).json(data);
   } catch (error) {
     console.log(error);
-    res.status(500).json({message:data.message})
+    res.status(500).json({ message: data.message });
   }
-}
+};
 
-module.exports = { getTasks, getTaskByClub, addTask, deleteTask };
+const getTaskByTitle = async (req, res) => {
+  try {
+    let data = await Task.findOne({ title: req.params.title });
+    res.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: data.message });
+  }
+};
+
+module.exports = { getTasks, getTaskByClub, addTask, deleteTask, getTaskByTitle };
