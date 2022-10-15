@@ -89,4 +89,4 @@ If you look at `default.js`, you can choose which collections you want to add to
 
 # Screenshots:
 
-![Login user][../screenshots/dashboard.png?raw=true "Login User"]
+![Login user][https://github.com/csking101/IRIS_211CS115_1_MERN/blob/main/screenshots/login.png "Login User"]
