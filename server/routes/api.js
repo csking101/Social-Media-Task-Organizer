@@ -166,6 +166,7 @@ const {
   getTasks,
   getTaskByClub,
   addTask,
+  getTaskByTitle,
   deleteTask,
 } = require("../controllers/task-controller.js");
 
@@ -178,6 +179,11 @@ router.get("/tasks", getTasks);
 // @desc Fetch the array of tasks pertaining to a specific club
 // @access Private
 router.get("/tasks/:club", getTaskByClub);
+
+// @route GET api/tasks/getbytitle/:name
+// @desc Fetch the array of tasks pertaining to a specific club
+// @access Private
+router.get("/tasks/getbytitle/:name", getTaskByTitle);
 
 // @route POST api/tasks
 // @desc Add a new task to the db
@@ -196,7 +202,11 @@ router.put("/tasks/:id", (req, res) => {});
 
 /*For subtasks*/
 
-const { getSubtaskByName } = require("../controllers/subtask-controller.js");
+const {
+  getSubtaskByName,
+  addSubtask,
+  deleteSubtask,
+} = require("../controllers/subtask-controller.js");
 
 // @route GET api/subtasks
 // @desc Fetch the array of subtasks
@@ -211,12 +221,12 @@ router.get("/subtasks/:name", getSubtaskByName);
 // @route POST api/subtasks
 // @desc Add a new user to the db
 // @access Private
-router.post("/subtasks", (req, res) => {});
+router.post("/subtasks", addSubtask);
 
 // @route DELETE api/subtasks/:id
 // @desc Delete a specific user from the db
 // @access Private
-router.delete("/subtasks/:id", (req, res) => {});
+router.delete("/subtasks/:id", deleteSubtask);
 
 // @route POST api/subtasks/:id
 // @desc Modify a specific user's details
