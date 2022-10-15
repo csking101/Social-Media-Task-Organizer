@@ -40,52 +40,52 @@ If you look at `default.js`, you can choose which collections you want to add to
 
 # List of implemented features:
 
-*Login for the users
-*Register for the users
-*Each post is defined as a task and has the following attributes:
-    *Title
-    *Description
-    *Social Media Platform
-    *Deadline
-*Each subtask has the following attributes:
-    *Title
-    *Description
-    *Deadline
-    *Assignee
-    *Status
-    *File (This is a place-holder attribute)
-*Members can create/delete new tasks and subtasks
-*Members can view more details about the tasks and sub tasks in the side-panel view
-*There has been a dashboard created for the viewing, creating, and deleting of the tasks and subtasks.
-*The different tasks of the club have been ordered by the social media platform
+* Login for the users
+* Register for the users
+* Each post is defined as a task and has the following attributes:
+    * Title
+    * Description
+    * Social Media Platform
+    * Deadline
+* Each subtask has the following attributes:
+    * Title
+    * Description
+    * Deadline
+    * Assignee
+    * Status
+    * File (This is a place-holder attribute)
+* Members can create/delete new tasks and subtasks
+* Members can view more details about the tasks and sub tasks in the side-panel view
+* There has been a dashboard created for the viewing, creating, and deleting of the tasks and subtasks.
+* The different tasks of the club have been ordered by the social media platform
 
 # List of planned features:
 
-*Change color of subtasks based on its status
-*Include drop-down menus
-*Include Google OAuth
-*Add deadlines to the user's Google Calendar with an API
-*Add the file upload feature, into the Google Drive of the user
-*Add Editing tasks and subtasks feature
-*Add an admin view
-*Make a user part of multiple clubs
-*Improve the styling of the website
-*Improve the models of the tasks, subtasks and users
-*Make references between users, tasks, and subtasks in the collections
+* Change color of subtasks based on its status
+* Include drop-down menus
+* Include Google OAuth
+* Add deadlines to the user's Google Calendar with an API
+* Add the file upload feature, into the Google Drive of the user
+* Add Editing tasks and subtasks feature
+* Add an admin view
+* Make a user part of multiple clubs
+* Improve the styling of the website
+* Improve the models of the tasks, subtasks and users
+* Make references between users, tasks, and subtasks in the collections
 
 # List of known bugs:
 
-1.Application stops working, and backend server crashes in case invalid form data is submitted to the database. Just restart the database prompt if this happens.
-2.The right side view will not change to view None after the deletion of a task or a subtask and if the same was selected in the view (Should be fixed easily)
-3.Log out pages sometimes redirects to the dashboard
-4.Sometimes subtasks aren't added
+1. Application stops working, and backend server crashes in case invalid form data is submitted to the database. Just restart the database prompt if this happens.
+2. The right side view will not change to view None after the deletion of a task or a subtask and if the same was selected in the view (Should be fixed easily)
+3. Log out pages sometimes redirects to the dashboard
+4. Sometimes subtasks aren't added
 
 # References used:
 
-*Stack Overflow
-*Material UI Docs
-*mongoosejs.com
-*Github Gist
+* Stack Overflow
+* Material UI Docs
+* mongoosejs.com
+* Github Gist
 
 # Screenshots:
 
