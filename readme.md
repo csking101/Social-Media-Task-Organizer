@@ -89,4 +89,4 @@ If you look at `default.js`, you can choose which collections you want to add to
 
 # Screenshots:
 
-![Login user][./screenshots/login.png "Login User"]
+! [Login user][ ./screenshots/login.png "Login User"]
