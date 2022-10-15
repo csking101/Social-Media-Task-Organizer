@@ -89,4 +89,13 @@ If you look at `default.js`, you can choose which collections you want to add to
 
 # Screenshots:
 
-![Login user](./screenshots/login.png?raw=true "Login User")
+! [Login user](./screenshots/login.png?raw=true "Login User")
+! [Register user](./screenshots/register.png?raw=true "Register User")
+! [Dashboard](./screenshots/dashboard.png?raw=true "Dashboard")
+! [Add task](./screenshots/add_task.png?raw=true "Add task")
+! [Dashboard after adding task](./screenshots/dashboard_task_added.png?raw=true "Dashboard after adding task")
+! [Add subtask](./screenshots/add_subtask_1.png?raw=true "Add subtask")
+! [Add subtask](./screenshots/add_subtask_2.png?raw=true "Add subtask")
+! [Dashboard while viewing task](./screenshots/dashboard1.png?raw=true "Dashboard while viewing task")
+! [Dashboard while viewing subtask](./screenshots/dashboard_subtask_four.png?raw=true "Dashboard while viewing subtask")
+! [Dashboard while viewing subtask without description](./screenshots/dashboard_subtask_without_description.png?raw=true "Dashboard while viewing subtask without description")
